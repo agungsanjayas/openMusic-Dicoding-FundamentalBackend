@@ -7,7 +7,7 @@ class SongsService {
     this._songs = [];
   }
 
-  addAlbum({
+  addSong({
     title,
     year,
     genre,
@@ -67,7 +67,7 @@ class SongsService {
 
   deleteSongById(id) {
     const index = this._songs.findIndex((song) => song.id === id);
-    if (!index) {
+    if (index === -1) {
       throw new NotFoundError('Gagal menghapus lagu. Id tidak ditemukan');
     }
     this._songs.splice(index, 1);
